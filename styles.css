@@ -2,7 +2,7 @@
 
 .contain{
  
-  background: linear-gradient(-45deg,#d2001a,#000000,#1900ff,#000000);
+  background: linear-gradient(-45deg,#ffffff,#000000,#101011,#fbfbfb);
   background-size: 400% 400%;
   margin: 0;
   min-height: 100vh;
@@ -16,7 +16,7 @@
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.5;
-  animation: color 10s ease-in-out infinite;
+  animation: color 34s ease-in-out infinite;
   
 
 }
@@ -169,6 +169,6 @@ font-family: Arial, Helvetica, sans-serif;
   height: 555px;
   width: 1280px;
   color:#fff;
-  background: linear-gradient(-45deg,#292827,#000000,#000000,#000000);
+  background: black
 }
 
