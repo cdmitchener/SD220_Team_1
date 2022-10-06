@@ -8,16 +8,30 @@ PLAYER, ENEMIES, BUILDINGS
 # Player class
 
 
-#from tarfile import PAX_NAME_FIELDS
-
-
 class Player:
     def __init__(self, pname):
         self.name = pname
+        self.inventory = {'healing': ('Liu Ration'), 'weapon': (
+            'Energy Revolver'), 'armor': ('Rad Suit')}
+        self.health = 100
 
 
-# Enemy class
+# Enemy class easy
 class Enemy:
+    def __init__(self):
+        self.name = ''
+
+# Enemy Subclass moderate
+
+
+class ModerateEnemy(Enemy):
+    def __init__(self):
+        pass
+
+# Enemy Subclass difficult
+
+
+class DifficultEnemy(Enemy):
     def __init__(self):
         pass
 

@@ -1,0 +1,8 @@
+Developers notes:
+
+main.py is the main function to run the game.
+
+zork_functions.py stores all the individual functions for the game.
+
+
+zork_objects.py stores all the objects for the game.

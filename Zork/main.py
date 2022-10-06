@@ -14,6 +14,11 @@ print(fun.intro())
 # get input to create player
 pname = input("What is your name? ")
 player = obj.Player(pname)
-# print("my name is ", player.name)#test name
 
+# let the user know whats going on
 fun.player_instructions(pname)
+
+fun.view_instructions()
+
+# Begin the actual game play
+fun.start_game()
