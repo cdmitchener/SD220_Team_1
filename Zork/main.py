@@ -15,7 +15,10 @@ import zork_objects as obj
 print(fun.intro())
 
 # get input to create player
-print("What is your name?")
+def create_player():
+    progress = 0
+    pinput.input(progress)
+    print("What is your name?")
 
 # let the user know whats going on
 fun.player_instructions()

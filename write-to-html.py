@@ -1,4 +1,4 @@
-import webbrowser
+# import webbrowser
 
 f = open('game.html','w')
 
@@ -54,4 +54,4 @@ message = """<html lang="en">
 f.write(message)
 f.close()
 
-webbrowser.open_new_tab('game.html')
+# webbrowser.open_new_tab('game.html')

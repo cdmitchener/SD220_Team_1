@@ -2,6 +2,10 @@ Chelsea Mitchener
 10/6/22
 
 I need to figure out how to get create_proxy() to work so that DOM events can use Python functions as callbacks.
+(Maybe a good solution? https://blog.logrocket.com/pyscript-run-python-browser/#using-pyscript-repl)
 
-I think I figured out how to assign user input to a variable that can be used, but I can't confirm/don't know how
-to confirm until I can get create_proxy() working.
+player_input.py
+    I think I figured out how to assign user input to a variable that can be used (in a VERY basic way... it will
+    need to be more complex to handle all the different input prompts), but I can't confirm/don't know how
+    to confirm until I can get create_proxy() working.
+        + Testing using cases for it to work for more input prompts
