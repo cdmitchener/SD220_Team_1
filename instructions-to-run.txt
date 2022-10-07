@@ -12,4 +12,4 @@ As of 10/6/22
     or whatever port number you want.
 
 2. Navigate to localhost:8000/game.html
-(or whatever port number you chose instead of 8000)
+  (or whatever port number you chose instead of 8000)
