@@ -28,7 +28,7 @@ def create_player():
 create_player()
 
 # -----------------------------------------------------------------------------------------
-# chels: If I can get create_proxy() to work and my logic in player_input.py is right or
+# chels: If I can get create_proxy() to work and my logic between the py-script tags is
 #        at least on the right track, then we shouldn't need the code that's commented out.
 # -----------------------------------------------------------------------------------------
 # let the user know whats going on
