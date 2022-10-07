@@ -1,0 +1,15 @@
+As of 10/6/22
+
+1. In the terminal type the following:
+
+        python -m http.server
+
+    This will create a webserver on default port 8000. 
+    If you want the port to be something else, type this then:
+
+        python -m http.server 3000
+
+    or whatever port number you want.
+
+2. Navigate to localhost:8000/game.html
+(or whatever port number you chose instead of 8000)

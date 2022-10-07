@@ -41,7 +41,7 @@ NOTES
 
         python -m http.server (specify port number)
   Navigate to whichever port it is using and add /game.html (or whatever file name you
-  assigned in the write-to-html.py file))
+  assigned in the write-to-html.py file)
 
 
 + From "PyScript - Getting Application Data"
