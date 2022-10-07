@@ -9,8 +9,6 @@ message = """<html lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono">
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
   <py-env>

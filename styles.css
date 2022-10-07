@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Ubuntu+Mono');
 
 .contain{
- 
   background: linear-gradient(-45deg,#ffffff,#000000,#101011,#fbfbfb);
   background-size: 400% 400%;
   margin: 0;
@@ -17,8 +16,6 @@
   font-weight: 400;
   line-height: 1.5;
   animation: color 34s ease-in-out infinite;
-  
-
 }
 
 @keyframes color {0%{
@@ -66,6 +63,7 @@ button {
   caret-color: #c6c8cc;
   background-color: #2b2b2b;
   outline: none;
+  border-radius: 5px;
   font-weight: bold;
   bottom: 0;
   left: 5px;
@@ -200,7 +198,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 font-family: Arial, Helvetica, sans-serif;
-
 }
 
 .topbtn::before,
