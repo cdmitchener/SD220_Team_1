@@ -50,6 +50,62 @@ button {
 
 }
 
+.container {
+  width: 1280px;
+  position: absolute;
+  bottom: 0;
+}
+
+#prompt-input {
+  font-family: 'Ubuntu Mono', sans-serif;
+  width: 1080px;
+  margin: .1em;
+  padding: .4em 1em;
+  font-size: 1.2em;
+  -webkit-text-fill-color: #c6c8cc;
+  caret-color: #c6c8cc;
+  background-color: #2b2b2b;
+  outline: none;
+  font-weight: bold;
+  bottom: 0;
+  left: 5px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #2b2b2b inset !important;
+}
+
+.confirm-btn {
+  color: #fff;
+  font-family: Orbitron, sans-serif;
+  border: none;
+  background: var(--neon-bg);
+  margin: .2em;
+  padding: .3em .8em;
+  font-size: 1.25em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  width: 180px;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  --neon-bg: repeating-linear-gradient(
+      0deg,
+      #a2a5aa 0%,
+      #a2a5aa 2%,
+      transparent 2%,
+      transparent 14%
+    ),
+    rgba(163, 173, 189, 0.7);
+  box-shadow: 0 0 1em #8f96a0;
+}
+
 .btn-blue {
   --neon-bg: repeating-linear-gradient(
       0deg,
@@ -169,6 +225,7 @@ font-family: Arial, Helvetica, sans-serif;
   height: 555px;
   width: 1280px;
   color:#fff;
-  background: black
+  background: black;
+  padding: 10px 20px 0;
+  position: relative;
 }
-
