@@ -1,0 +1,58 @@
+---------------------------------
+BASIC TEMPLATE (.py)
+---------------------------------
+# creates file to write to
+f = open('helloworld.html','w')
+
+message = """<html>
+<head>
+    <link rel="stylesheet" href="link/to/style.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    # Declare local Python module(s)
+    <py-env>
+        - paths:
+            - ./script.py
+    </py-env>
+</head>
+<body>
+    <py-script>
+        print('Hello, world!')
+    <py-script>
+</body>
+</html>"""
+
+f.write(message)
+f.close()
+
+
+---------------------------------
+NOTES
+---------------------------------
++ If you import a local Python script from file by using the src parameter of the
+  py-script tag, follow the syntax below:
+        <py-script src=".path/to/script.py"></py-script>
+
+
++ If utilizing local files, you will receive errors. The solution to this is to use
+  a webserver to serve those files. In the command prompt type the following:
+        python -m http.server
+            
+            OR
+
+        python -m http.server (specify port number)
+  Navigate to whichever port it is using and add /game.html (or whatever file name you
+  assigned in the write-to-html.py file))
+
+
++ From "PyScript - Getting Application Data"
+  https://www.jhanley.com/blog/pyscript-getting-application-data/
+
+  "PyScript applications cannot request the user to type characters in response to
+  Python input type of functions. PyScript applications must use HTML DOM elements
+  to create a GUI that data is entered into. Then the application can read the data
+  from those elements." See this link:
+  https://developer.mozilla.org/en-US/docs/Web/Guide/User_input_methods#tutorials
+
+
++ "Pyscript: JavaScript Event Callbacks"
+  https://www.jhanley.com/blog/pyscript-javascript-callbacks/

@@ -35,3 +35,6 @@ def start_game():
     print('You just woke up in your radiation proof bio-pod headquarters.\nYou just traveled from a small community from the south and there is nothing back\nthere for you unless you retriev the special Chelsea-Wax plant.\nYou have the option to travel Northwest (nw), North (n), or NorthEast (ne).')
     x = input('Which direction are you going to travel first?')
     return x
+
+if __name__=="__main__":
+    start_game()

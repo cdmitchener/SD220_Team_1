@@ -1,0 +1,7 @@
+Chelsea Mitchener
+10/6/22
+
+I need to figure out how to get create_proxy() to work so that DOM events can use Python functions as callbacks.
+
+I think I figured out how to assign user input to a variable that can be used, but I can't confirm/don't know how
+to confirm until I can get create_proxy() working.
