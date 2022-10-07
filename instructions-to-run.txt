@@ -1,6 +1,9 @@
 As of 10/6/22
 
-1. In the terminal type the following:
+1. First, make sure that the indentation in game.html matches the indentation in write-to-html.py.
+   The code that's between py-script tags won't work if the indentation is off.
+
+2. In the terminal type the following:
 
         python -m http.server
 
@@ -11,5 +14,5 @@ As of 10/6/22
 
     or whatever port number you want.
 
-2. Navigate to localhost:8000/game.html
+3. Navigate to localhost:8000/game.html
   (or whatever port number you chose instead of 8000)
