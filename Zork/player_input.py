@@ -4,7 +4,7 @@ import zork_objects as obj
 
 def input(progress):
     form = cgi.FieldStorage()
-    # assign the player's name to the variable input
+    # assign the player's input to the variable input
     input=form["input"].value
     match progress:
         case 0:
