@@ -15,7 +15,6 @@ message = """<html lang="en">
     - paths:
         - /Zork/zork_functions.py
         - /Zork/zork_objects.py
-        - /Zork/player_input.py
         - /Zork/main.py
   </py-env>
   </head>
