@@ -28,6 +28,10 @@ f.close()
 ---------------------------------
 NOTES
 ---------------------------------
++ Be sure to run write-to-html.py if any changes are made in it, that way game.html
+  reflects those updates.
+
+
 + If you import a local Python script from file by using the src parameter of the
   py-script tag, follow the syntax below:
         <py-script src=".path/to/script.py"></py-script>
