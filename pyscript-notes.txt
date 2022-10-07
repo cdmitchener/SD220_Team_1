@@ -56,3 +56,9 @@ NOTES
 
 + "Pyscript: JavaScript Event Callbacks"
   https://www.jhanley.com/blog/pyscript-javascript-callbacks/
+  (good resource on create_proxy())
+
+
++ "Intro to PyScript: Run Python in the browswer"
+  https://blog.logrocket.com/pyscript-run-python-browser/#attaching-events-elements
+  (overall really good tutorial, plus maybe a way to save and load data?)
