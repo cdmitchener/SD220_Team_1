@@ -12,6 +12,7 @@
         - /Zork/zork_functions.py
         - /Zork/zork_objects.py
         - /Zork/player_input.py
+        - /Zork/main.py
   </py-env>
   </head>
   <body>
@@ -20,11 +21,23 @@
     </div>
     <div class="game">
         <py-script src = "/Zork/main.py">
+            def input(progress):
+                form = cgi.FieldStorage()
+                # assign the player's input to the variable input
+                player_input=form["prompt-input"].value
+                match progress:
+                    case 0:
+                        # pass the player's name to player_instructions()
+                        fun.player_instructions(player_input)
+                        # pass the player's name to the class Player
+                        obj.Player(player_input)
+
+                print(player_input)
         </py-script>
     </div>
     <div>
         <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-        <form name=input method=post action=player_input.py target="dummyframe">
+        <form name=input action=/Zork/player_input.py target="dummyframe">
             <input type="text" id="prompt-input" name="prompt-input">
             <button id="confirm-btn">Confirm</button>
         </form>

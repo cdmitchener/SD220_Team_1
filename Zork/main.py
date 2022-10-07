@@ -1,13 +1,14 @@
 # Zork 2 main program
-# Joseph Prater
-# 10/05/2022
+# Joseph Prater, Chelsea Mitchener
+# 10/07/2022
 """
 THIS IS THE MAIN
 PROGRAM FOR ZORK 2
 """
 # from js import document
 # from pyodide import create_proxy
-import player_input as pinput
+
+# import player_input as pinput
 import zork_functions as fun
 import zork_objects as obj
 
@@ -16,12 +17,22 @@ print(fun.intro())
 
 # get input to create player
 def create_player():
-    progress = 0
-    pinput.input(progress)
-    print("What is your name?")
+    try:
+        progress = 0
+        print("What is your name?")
+        input(progress)
 
+    except EOFError:
+        return
+
+create_player()
+
+# -----------------------------------------------------------------------------------------
+# chels: If I can get create_proxy() to work and my logic in player_input.py is right or
+#        at least on the right track, then we shouldn't need the code that's commented out.
+# -----------------------------------------------------------------------------------------
 # let the user know whats going on
-fun.player_instructions()
+# fun.player_instructions()
 
 fun.view_instructions()
 
