@@ -1,17 +1,4 @@
-# Zork 2 Functions
-# Joseph Prater
-# 10/05/2022
-"""
-FUNCTIONS NEEDED FOR 
-ZORK 2 TO RUN
- """
-from ast import Or
 import zork_objects as obj
-
-# introduction statment of what is happening
-def intro():
-    x = '“Year 2069, 6 years after the Betelgeuse Star went Supernova.  \nIn just seconds, the gamma rays wiped out 80% of life on earth.  \nFew survived the initial flash, and less survived the radiation \nthat pollutes the Earth now.  Radiation is the leading cause of \ndeath for the remaining few.  You are on a mission to travel \nto a hidden underground vault to find a special plant, the Chelsea-Wax Plant, \nto create a cure to suppress and combat the radiation sickness \nof the few remaining people.  You may be humanity\'s final hope at survival.”'
-    return x
 
 # instruct player how to play
 def player_instructions(name):

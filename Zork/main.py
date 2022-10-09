@@ -1,55 +1,82 @@
-# Zork 2 main program
-# Joseph Prater, Chelsea Mitchener
-# 10/07/2022
-"""
-THIS IS THE MAIN
-PROGRAM FOR ZORK 2
-"""
 # from js import document
 # from pyodide import create_proxy
 
-# import player_input as pinput
 import zork_functions as fun
 import zork_objects as obj
+from js import document
+# supress FutureWarning of deprecated feature from pyodide
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+from pyodide import create_proxy
 
-# intro statment
-print(fun.intro())
+def view_instructions(e):
+    inp = Element('prompt-input').element
+    text = inp.value
+    inp.value = ""
+    if text != "" and text != "n":
+        pyscript.write("message", f"Instructions: To view inventory, enter 'i' To view health, enter To view armor, enter To navigate, enter for northwest,for North, and for North East When encountering enemies, enter  to attack and  to flee.")
 
-# get input to create player
-# pname = input("What is your name? ")
-# player = obj.Player(pname)
-def create_player():
-    try:
-        print("What is your name?")
+        pyscript.write("prompt", "Press 'Enter' to proceed...")
 
-        # player = obj.Player(pname)
+    # input_proxy = create_proxy(begin)
+    # confirm_button = document.getElementById("confirm-btn")
+    # confirm_button.addEventListener("click", input_proxy)
 
-    except EOFError:
-        return
+def create_player(e):
+    global name
+    inp = Element('prompt-input').element
+    text = inp.value
+    inp.value = ""
+    pyscript.write("test", "Step 4")
+    pyscript.write("message", f"Welcome, {text}. You are on a mission to search for a hidden underground vault the goverment used to store seeds of all the plants known. Scientists have determined the rare Chelsea plant is needed to stop radiation sickness. It is up to you to search the barren waistland for this vault. It will be dangerous and you may die. Travel looking for clues as to where the vault is and keep yourself safe along the way. Mankind depends on you!")
 
-# create_player()
+    obj.Player(text)
 
-pyscript.write("output", create_player())
+    pyscript.write("test", "Step 4.1")
+    pyscript.write("prompt", "Would you like to view the instructions on how to play?")
+    
+    welcome_proxy = create_proxy(view_instructions)
+    confirm_button = document.getElementById("confirm-btn")
+    confirm_button.addEventListener("click", welcome_proxy)
 
-def input():
-    form = cgi.FieldStorage()
-    # assign the player's input to the variable input
-    # player_input=form["prompt-input"].value
-    player_input= "Test"
+    progress = 1
+    pyscript.write("test", "Step 5")
+
+    game_progress(progress)
+
+
+def start_game():
     progress = 0
+    pyscript.write("test", "Step 1")
+    game_progress(progress)
+
+def game_progress(progress):
+    print(progress)
+    pyscript.write("test", "Step 2")
     match progress:
         case 0:
-            # pass the player's name to player_instructions()
-            fun.player_instructions(player_input)
-            # pass the player's name to the class Player
-            obj.Player(player_input)
+            pyscript.write("test", "Step 3")
+            # intro statment
+            pyscript.write("message", '\"Year 2069, 6 years after the Betelgeuse Star went Supernova. In just seconds, the gamma rays wiped out 80% of life on earth. Few survived the initial flash, and less survived the radiation that pollutes the Earth now. Radiation is the leading cause of death for the remaining few. You are on a mission to travel to a hidden underground vault to find a special plant, the Chelsea-Wax Plant, to create a cure to suppress and combat the radiation sickness of the few remaining people. You may be humanity\'s final hope at survival.\"')
 
-    print(player_input)
+            pyscript.write("prompt", "What is your name?")
 
-# -----------------------------------------------------------------------------------------
-# chels: If I can get create_proxy() to work and my logic between the py-script tags is
-#        at least on the right track, then we shouldn't need the code that's commented out.
-# -----------------------------------------------------------------------------------------
+            progress =+ 1
+            print(progress)
+
+            name_proxy = create_proxy(create_player)
+            confirm_button = document.getElementById("confirm-btn")
+            confirm_button.addEventListener("click", name_proxy)
+        
+        case 1:
+            print("Step 6")
+            instructions_proxy = create_proxy(view_instructions)
+            confirm_button = document.getElementById("confirm-btn")
+            confirm_button.addEventListener("click", instructions_proxy)
+
+if __name__ == "__main__":
+    start_game()
+
 # let the user know whats going on
 # fun.player_instructions(pname)
 

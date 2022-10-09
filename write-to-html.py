@@ -10,7 +10,6 @@ message = """<html lang="en">
     <title>Document</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
   <py-env>
     - paths:
         - /Zork/zork_functions.py
@@ -19,32 +18,24 @@ message = """<html lang="en">
   </py-env>
   </head>
   <body>
+    <py-config>
+      src = "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"
+      lang = "python"
+    </py-config>
     <section class="contain">
     <div class="topbtn"><img src="oni.png" height="200px" width ="200px">
     </div>
     <div class="game">
-      <p id="output"></p>
+      <p id="message"></p>
+      <p id="prompt"></p>
+      <h2 id="test"></h2>
         <py-script src = "/Zork/main.py">
-          # pyscript.write("output", create_player())
-
-          # def input(progress):
-          #     form = cgi.FieldStorage()
-          #     # assign the player's input to the variable input
-          #     player_input=form["prompt-input"].value
-          #     match progress:
-          #         case 0:
-          #             # pass the player's name to player_instructions()
-          #             fun.player_instructions(player_input)
-          #             # pass the player's name to the class Player
-          #             obj.Player(player_input)
-
-          #     print(player_input)
         </py-script>
         <div class="container">
           <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
           <form name=input action=/Zork/main.py method="post" target="dummyframe">
               <input type="text" id="prompt-input" name="prompt-input">
-              <input type="submit" value="Confirm">
+              <input type="button" id="confirm-btn" value="Confirm">
           </form>
         </div>
     </div>
