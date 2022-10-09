@@ -19,25 +19,28 @@
     <div class="topbtn"><img src="oni.png" height="200px" width ="200px">
     </div>
     <div class="game">
+      <p id="output"></p>
         <py-script src = "/Zork/main.py">
-            def input(progress):
-                form = cgi.FieldStorage()
-                # assign the player's input to the variable input
-                player_input=form["prompt-input"].value
-                match progress:
-                    case 0:
-                        # pass the player's name to player_instructions()
-                        fun.player_instructions(player_input)
-                        # pass the player's name to the class Player
-                        obj.Player(player_input)
+          # pyscript.write("output", create_player())
 
-                print(player_input)
+          # def input(progress):
+          #     form = cgi.FieldStorage()
+          #     # assign the player's input to the variable input
+          #     player_input=form["prompt-input"].value
+          #     match progress:
+          #         case 0:
+          #             # pass the player's name to player_instructions()
+          #             fun.player_instructions(player_input)
+          #             # pass the player's name to the class Player
+          #             obj.Player(player_input)
+
+          #     print(player_input)
         </py-script>
         <div class="container">
           <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-          <form name=input action=/Zork/player_input.py target="dummyframe">
+          <form name=input action=/Zork/main.py method="post" target="dummyframe">
               <input type="text" id="prompt-input" name="prompt-input">
-              <button class="confirm-btn" id="confirm-btn">Confirm</button>
+              <input type="submit" value="Confirm">
           </form>
         </div>
     </div>
@@ -48,7 +51,7 @@
     </div>
     </section>
     <script>
-    var input = document.getElementById("myInput");
+    var input = document.getElementById("prompt-input");
     input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
             event.preventDefault();
