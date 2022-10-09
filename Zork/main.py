@@ -31,18 +31,20 @@ def create_player(e):
     pyscript.write("message", f"Welcome, {text}. You are on a mission to search for a hidden underground vault the goverment used to store seeds of all the plants known. Scientists have determined the rare Chelsea plant is needed to stop radiation sickness. It is up to you to search the barren waistland for this vault. It will be dangerous and you may die. Travel looking for clues as to where the vault is and keep yourself safe along the way. Mankind depends on you!")
 
     obj.Player(text)
+    print(obj.Player)
 
     pyscript.write("test", "Step 4.1")
     pyscript.write("prompt", "Would you like to view the instructions on how to play?")
+
+    pyscript.write("test", "Step 5")
+
+
+    game_progress(progress)
+    print(progress)
     
     welcome_proxy = create_proxy(view_instructions)
     confirm_button = document.getElementById("confirm-btn")
     confirm_button.addEventListener("click", welcome_proxy)
-
-    progress = 1
-    pyscript.write("test", "Step 5")
-
-    game_progress(progress)
 
 
 def start_game():
@@ -53,26 +55,31 @@ def start_game():
 def game_progress(progress):
     print(progress)
     pyscript.write("test", "Step 2")
-    match progress:
-        case 0:
-            pyscript.write("test", "Step 3")
-            # intro statment
-            pyscript.write("message", '\"Year 2069, 6 years after the Betelgeuse Star went Supernova. In just seconds, the gamma rays wiped out 80% of life on earth. Few survived the initial flash, and less survived the radiation that pollutes the Earth now. Radiation is the leading cause of death for the remaining few. You are on a mission to travel to a hidden underground vault to find a special plant, the Chelsea-Wax Plant, to create a cure to suppress and combat the radiation sickness of the few remaining people. You may be humanity\'s final hope at survival.\"')
+    if progress == 0:
+        pyscript.write("test", "Step 3")
+        # intro statment
+        pyscript.write("message", '\"Year 2069, 6 years after the Betelgeuse Star went Supernova. In just seconds, the gamma rays wiped out 80% of life on earth. Few survived the initial flash, and less survived the radiation that pollutes the Earth now. Radiation is the leading cause of death for the remaining few. You are on a mission to travel to a hidden underground vault to find a special plant, the Chelsea-Wax Plant, to create a cure to suppress and combat the radiation sickness of the few remaining people. You may be humanity\'s final hope at survival.\"')
 
-            pyscript.write("prompt", "What is your name?")
+        pyscript.write("prompt", "What is your name?")
 
-            progress =+ 1
-            print(progress)
+        progress =+ 1
+        print(progress)
 
-            name_proxy = create_proxy(create_player)
-            confirm_button = document.getElementById("confirm-btn")
-            confirm_button.addEventListener("click", name_proxy)
+        name_proxy = create_proxy(create_player)
+        confirm_button = document.getElementById("confirm-btn")
+        confirm_button.addEventListener("click", name_proxy)
         
-        case 1:
-            print("Step 6")
-            instructions_proxy = create_proxy(view_instructions)
-            confirm_button = document.getElementById("confirm-btn")
-            confirm_button.addEventListener("click", instructions_proxy)
+    elif progress == 1:
+        print("Step 6")
+        instructions_proxy = create_proxy(view_instructions)
+        confirm_button = document.getElementById("confirm-btn")
+        confirm_button.addEventListener("click", instructions_proxy)
+
+        progress =+ 1
+        print(progress)
+
+    else:
+        pass
 
 if __name__ == "__main__":
     start_game()
