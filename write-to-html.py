@@ -19,7 +19,6 @@ message = """<html lang="en">
   </head>
   <body>
     <py-config>
-      src = "https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"
       lang = "python"
     </py-config>
     <section class="contain">
@@ -29,6 +28,7 @@ message = """<html lang="en">
       <p id="message"></p>
       <p id="prompt"></p>
       <h2 id="test"></h2>
+      <p id="progress">0</p>
         <py-script src = "/Zork/main.py">
         </py-script>
         <div class="container">

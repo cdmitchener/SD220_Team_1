@@ -1,3 +1,4 @@
+
 # from js import document
 # from pyodide import create_proxy
 
@@ -9,14 +10,29 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 from pyodide import create_proxy
 
-def view_instructions(e):
-    inp = Element('prompt-input').element
-    text = inp.value
-    inp.value = ""
-    if text != "" and text != "n":
-        pyscript.write("message", f"Instructions: To view inventory, enter 'i' To view health, enter To view armor, enter To navigate, enter for northwest,for North, and for North East When encountering enemies, enter  to attack and  to flee.")
+progress = 0
 
-        pyscript.write("prompt", "Press 'Enter' to proceed...")
+def add_one():
+    global progress
+    progress = document.getElementById("progress")
+    int_progress = int(progress)
+    int_progress += 1
+    Element("progress").write(int_progress)
+
+    Element("test").write("Step 1")
+    game_progress(int_progress)
+
+def begin(e):
+    pass
+
+# def view_instructions(e):
+#     inp = Element('prompt-input').element
+#     text = inp.value
+#     inp.value = ""
+#     if text != "" and text != "n":
+#         pyscript.write("message", f"Instructions: To view inventory, enter 'i' To view health, enter To view armor, enter To navigate, enter for northwest,for North, and for North East When encountering enemies, enter  to attack and  to flee.")
+
+#         pyscript.write("prompt", "Press 'Enter' to proceed...")
 
     # input_proxy = create_proxy(begin)
     # confirm_button = document.getElementById("confirm-btn")
@@ -27,56 +43,54 @@ def create_player(e):
     inp = Element('prompt-input').element
     text = inp.value
     inp.value = ""
-    pyscript.write("test", "Step 4")
-    pyscript.write("message", f"Welcome, {text}. You are on a mission to search for a hidden underground vault the goverment used to store seeds of all the plants known. Scientists have determined the rare Chelsea plant is needed to stop radiation sickness. It is up to you to search the barren waistland for this vault. It will be dangerous and you may die. Travel looking for clues as to where the vault is and keep yourself safe along the way. Mankind depends on you!")
+    Element("test").write("Step 4")
+    Element("message").write(f"Welcome, {text}. You are on a mission to search for a hidden underground vault the goverment used to store seeds of all the plants known. Scientists have determined the rare Chelsea plant is needed to stop radiation sickness. It is up to you to search the barren waistland for this vault. It will be dangerous and you may die. Travel looking for clues as to where the vault is and keep yourself safe along the way. Mankind depends on you!")
 
     obj.Player(text)
-    print(obj.Player)
 
-    pyscript.write("test", "Step 4.1")
-    pyscript.write("prompt", "Would you like to view the instructions on how to play?")
+    Element("test").write("Step 4.1")
+    Element("prompt").write("Would you like to view the instructions on how to play?")
 
-    pyscript.write("test", "Step 5")
-
-
-    game_progress(progress)
-    print(progress)
+    Element("test").write("Step 5")
     
-    welcome_proxy = create_proxy(view_instructions)
+    instructions_proxy = create_proxy(game_progress)
     confirm_button = document.getElementById("confirm-btn")
-    confirm_button.addEventListener("click", welcome_proxy)
-
+    confirm_button.addEventListener("click", add_one)
+    confirm_button.addEventListener("click", instructions_proxy)
 
 def start_game():
-    progress = 0
-    pyscript.write("test", "Step 1")
+    Element("test").write("Step 1")
     game_progress(progress)
 
 def game_progress(progress):
     print(progress)
-    pyscript.write("test", "Step 2")
+    Element("test").write("Step 2")
     if progress == 0:
-        pyscript.write("test", "Step 3")
+        Element("test").write("Step 3")
         # intro statment
-        pyscript.write("message", '\"Year 2069, 6 years after the Betelgeuse Star went Supernova. In just seconds, the gamma rays wiped out 80% of life on earth. Few survived the initial flash, and less survived the radiation that pollutes the Earth now. Radiation is the leading cause of death for the remaining few. You are on a mission to travel to a hidden underground vault to find a special plant, the Chelsea-Wax Plant, to create a cure to suppress and combat the radiation sickness of the few remaining people. You may be humanity\'s final hope at survival.\"')
+        Element("message").write('\"Year 2069, 6 years after the Betelgeuse Star went Supernova. In just seconds, the gamma rays wiped out 80% of life on earth. Few survived the initial flash, and less survived the radiation that pollutes the Earth now. Radiation is the leading cause of death for the remaining few. You are on a mission to travel to a hidden underground vault to find a special plant, the Chelsea-Wax Plant, to create a cure to suppress and combat the radiation sickness of the few remaining people. You may be humanity\'s final hope at survival.\"')
 
-        pyscript.write("prompt", "What is your name?")
-
-        progress =+ 1
-        print(progress)
+        Element("prompt").write("What is your name?")
 
         name_proxy = create_proxy(create_player)
         confirm_button = document.getElementById("confirm-btn")
+        confirm_button.addEventListener("click", add_one)
         confirm_button.addEventListener("click", name_proxy)
         
     elif progress == 1:
         print("Step 6")
-        instructions_proxy = create_proxy(view_instructions)
-        confirm_button = document.getElementById("confirm-btn")
-        confirm_button.addEventListener("click", instructions_proxy)
+        inp = Element('prompt-input').element
+        text = inp.value
+        inp.value = ""
+        if text != "" and text != "n":
+            Element("message").write(f"Instructions: To view inventory, enter 'i' To view health, enter To view armor, enter To navigate, enter for northwest,for North, and for North East When encountering enemies, enter  to attack and  to flee.")
 
-        progress =+ 1
-        print(progress)
+            Element("prompt").write("Press 'Enter' to proceed...")
+
+        begin_proxy = create_proxy(begin)
+        confirm_button = document.getElementById("confirm-btn")
+        confirm_button.addEventListener("click", add_one)
+        confirm_button.addEventListener("click", begin_proxy)
 
     else:
         pass
