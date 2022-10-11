@@ -14,7 +14,7 @@ progress = 0
 
 def game_progress(e):
     global progress
-    Element("test").write(f"{progress}")
+    global text
 
     inp = Element('prompt-input').element
     text = inp.value
@@ -22,54 +22,34 @@ def game_progress(e):
     Element("test").write(f"{progress}")
     inp.value = ""
 
-    Element("test").write("Step 2")
-
     if progress == 1:
-        Element("test").write("Step 3")
+        Element("important").write("")
+
         # intro statment
         Element("message").write('\"Year 2069, 6 years after the Betelgeuse Star went Supernova. In just seconds, the gamma rays wiped out 80% of life on earth. Few survived the initial flash, and less survived the radiation that pollutes the Earth now. Radiation is the leading cause of death for the remaining few. You are on a mission to travel to a hidden underground vault to find a special plant, the Chelsea-Wax Plant, to create a cure to suppress and combat the radiation sickness of the few remaining people. You may be humanity\'s final hope at survival.\"')
 
         Element("prompt").write("What is your name?")
 
-        proxy = create_proxy(game_progress)
-
-        confirm_button = document.getElementById("confirm-btn")
-        
-        confirm_button.addEventListener("click", proxy)
-
     elif progress == 2:
-        global name
-        Element("test").write("Step 4")
         Element("message").write(f"Welcome, {text}. You are on a mission to search for a hidden underground vault the goverment used to store seeds of all the plants known. Scientists have determined the rare Chelsea plant is needed to stop radiation sickness. It is up to you to search the barren waistland for this vault. It will be dangerous and you may die. Travel looking for clues as to where the vault is and keep yourself safe along the way. Mankind depends on you!")
 
-        obj.Player(text)
-
-        Element("test").write("Step 4.1")
         Element("prompt").write("Would you like to view the instructions on how to play?")
 
-        Element("test").write("Step 5")
-        
-        proxy = create_proxy(game_progress)
-
-        confirm_button = document.getElementById("confirm-btn")
-        
-        confirm_button.addEventListener("click", proxy)
+        return obj.Player(text)
 
     elif progress == 3:
-        print("Step 6")
         if text != "" and text != "n":
-            Element("message").write("Instructions:\nTo view inventory, enter 'i'\nTo view health, enter 'h'\nTo view armor, enter 'c'\nTo navigate, enter 'nw' for North West, 'n' for North, and for 'ne' North East.\nWhen encountering enemies, enter 'a' to attack and 'f' to flee.")
+            Element("important").write("INSTRUCTIONS:<br>")
+            Element("message").write("Inventory... 'i'<br>Health... 'h'<br>Armor... 'c'<br>Go North West... 'nw'<br>Go North... 'n'<br>Go North East... 'ne'<br><br>When encountering enemies:<br>Attack... 'a'<br>Flee... 'f'")
 
-            Element("prompt").write("Press 'Enter' to proceed...")
-
-        proxy = create_proxy(game_progress)
-
-        confirm_button = document.getElementById("confirm-btn")
-        
-        confirm_button.addEventListener("click", proxy)
+            Element("prompt").write("<h3 align='center'>Press 'Enter' to proceed...</h3>")
 
     else:
         pass
+
+    proxy = create_proxy(game_progress)
+    confirm_button = document.getElementById("confirm-btn")
+    confirm_button.addEventListener("click", proxy)
 
 if __name__ == "__main__":
     game_progress(progress)

@@ -25,6 +25,7 @@ message = """<html lang="en">
     <div class="topbtn"><img src="oni.png" height="200px" width ="200px">
     </div>
     <div class="game">
+      <h2 id="important">loading...</h2>
       <p id="message"></p>
       <p id="prompt"></p>
       <h2 id="test"></h2>

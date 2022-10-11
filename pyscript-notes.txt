@@ -87,3 +87,4 @@ NOTES
 
           It will still callback to the player_name() function and not the
           some_function() function!!!!
+  https://readthedocs.org/projects/pyodide/downloads/pdf/latest/ (page 39)
