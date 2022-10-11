@@ -58,7 +58,7 @@ def game_progress(e):
     elif progress == 3:
         print("Step 6")
         if text != "" and text != "n":
-            Element("message").write(f"Instructions: To view inventory, enter 'i' To view health, enter To view armor, enter To navigate, enter for northwest,for North, and for North East When encountering enemies, enter  to attack and  to flee.")
+            Element("message").write("Instructions:\nTo view inventory, enter 'i'\nTo view health, enter 'h'\nTo view armor, enter 'c'\nTo navigate, enter 'nw' for North West, 'n' for North, and for 'ne' North East.\nWhen encountering enemies, enter 'a' to attack and 'f' to flee.")
 
             Element("prompt").write("Press 'Enter' to proceed...")
 
