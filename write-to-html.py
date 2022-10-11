@@ -9,6 +9,7 @@ message = """<html lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/pyodide/dev/full/pyodide.js"></script>
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <py-env>
     - paths:
@@ -28,8 +29,14 @@ message = """<html lang="en">
       <p id="message"></p>
       <p id="prompt"></p>
       <h2 id="test"></h2>
-      <p id="progress">0</p>
+      <p id="progress"></p>
         <py-script src = "/Zork/main.py">
+          # to use pyodide in a web page load pyodide.s and initialize Pyodide with loadPyodide
+          async function main() {
+            let pyodide = await loadPyodide();
+            console.log(pyodide.runPython("1 + 2"));
+          }
+          main();
         </py-script>
         <div class="container">
           <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>

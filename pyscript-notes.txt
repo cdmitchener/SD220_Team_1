@@ -66,3 +66,24 @@ NOTES
 + "Intro to PyScript: Run Python in the browser"
   https://blog.logrocket.com/pyscript-run-python-browser/#attaching-events-elements
   (overall really good tutorial, plus maybe a way to save and load data?)
+
++ create_proxy() -- IMPORTANT TO KNOW!!!
+  CAN ONLY BE USED ONCE! Not in the sense that it can be used once and then it no
+  longer functions if you try to use it again, but that it cannot be assigned to
+  the same JavaScript element and used to call a different function. Once an element
+  is used with create_proxy(), it will be used to call the same function, even if
+  you code it to call a different one.
+    e.g.: name_proxy = create_proxy(player_name)
+          confirm_button = document.getElementById("confirm-btn")
+          confirm_button.addEventListener("click", name_proxy)
+
+          The confirm button will always callback the player_name() function.
+
+          So, even if you code this later:
+
+          x_proxy = create_proxy(some_function)
+          confirm_button = document.getElementById("confirm-btn")
+          confirm_button.addEventListener("click", x_proxy)
+
+          It will still callback to the player_name() function and not the
+          some_function() function!!!!
