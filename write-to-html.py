@@ -25,18 +25,19 @@ message = """<html lang="en">
     <div class="topbtn"><img src="oni.png" height="200px" width ="200px">
     </div>
     <div class="game">
-      <h2 id="important">loading...</h2>
+      <h2 id="important">&gt;&nbsp; loading...</h2>
       <p id="message"></p>
       <p id="prompt"></p>
-      <h2 id="test"></h2>
       <p id="progress"></p>
         <py-script src = "/Zork/main.py">
         </py-script>
         <div class="container">
           <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-          <form name=input action=/Zork/main.py method="post" target="dummyframe">
+          <form name=input action=/Zork/main.py method="post" autocomplete="off" target="dummyframe">
               <input type="text" id="prompt-input" name="prompt-input">
-              <input type="button" id="confirm-btn" value="Confirm">
+              <div class="confirm-contain">
+              <input type="button" id="confirm-btn" class="confirm" value="Confirm">
+              </div>
           </form>
         </div>
     </div>

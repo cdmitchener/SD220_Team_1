@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="crt_effect.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <py-env>
     - paths:
@@ -21,18 +22,20 @@
     <div class="topbtn"><img src="oni.png" height="200px" width ="200px">
     </div>
     <div class="game">
-      <h2 id="important">loading...</h2>
+      <h2 id="important">&gt;&nbsp; loading...</h2>
       <p id="message"></p>
       <p id="prompt"></p>
-      <h2 id="test"></h2>
-      <p id="progress"></p>
+          <div class="overlay">
         <py-script src = "/Zork/main.py">
         </py-script>
+                </div>
         <div class="container">
           <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
-          <form name=input action=/Zork/main.py method="post" target="dummyframe">
+          <form name=input action=/Zork/main.py method="post" autocomplete="off" target="dummyframe">
               <input type="text" id="prompt-input" name="prompt-input">
-              <input type="button" id="confirm-btn" value="Confirm">
+              <div class="confirm-contain">
+              <input type="button" id="confirm-btn" class="confirm" value="Confirm"><span id="post"></span>
+              </div>
           </form>
         </div>
     </div>

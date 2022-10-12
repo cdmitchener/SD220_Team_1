@@ -44,7 +44,6 @@ button {
   cursor: pointer;
   overflow: hidden;
   outline: none;
-
 }
 
 .container {
@@ -54,6 +53,7 @@ button {
 }
 
 #prompt-input {
+  z-index: 1;
   font-family: 'Ubuntu Mono', sans-serif;
   width: 1080px;
   margin: .1em;
@@ -76,7 +76,8 @@ input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px #2b2b2b inset !important;
 }
 
-.confirm-btn {
+#confirm-btn {
+  z-index: 1;
   color: #fff;
   font-family: Orbitron, sans-serif;
   border: none;
@@ -90,53 +91,62 @@ input:-webkit-autofill:active{
   width: 180px;
   bottom: 0;
   right: 0;
+  border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  --neon-bg: repeating-linear-gradient(
-      0deg,
-      #a2a5aa 0%,
-      #a2a5aa 2%,
-      transparent 2%,
-      transparent 14%
-    ),
-    rgba(163, 173, 189, 0.7);
+  background-color: #a2a5aa;
   box-shadow: 0 0 1em #8f96a0;
 }
 
+.confirm:hover {
+   animation: flicker 200ms linear forwards;
+}
+
+#confirm-btn:hover {
+  color: #caced5;
+}
+
+.confirm-contain {
+  display: inline;
+}
+
 .btn-blue {
-  --neon-bg: repeating-linear-gradient(
+  background-color: #3d6ab8;
+  /* --neon-bg: repeating-linear-gradient(
       0deg,
       #72a0ed 0%,
       #72a0ed 2%,
       transparent 2%,
       transparent 14%
     ),
-    rgba(33, 118, 255, 0.7);
+    rgba(33, 118, 255, 0.7); */
   box-shadow: 0 0 1em #2176ff;
 }
 
 .btn-red {
-  --neon-bg: repeating-linear-gradient(
+  background-color: #b63e3e;
+  /* --neon-bg: repeating-linear-gradient(
       0deg,
       #ed7272 0%,
       #ed7272 2%,
       transparent 2%,
       transparent 14%
     ),
-    rgba(255, 33, 33, 0.7);
+    rgba(255, 33, 33, 0.7); */
   box-shadow: 0 0 1em #ff2121;
 }
 
 .btn-green {
-  --neon-bg: repeating-linear-gradient(
+  background-color: #2fb04f;
+  /* --neon-bg: repeating-linear-gradient(
       0deg,
       #72edd2 0%,
       #72edd2 2%,
       transparent 2%,
       transparent 14%
     ),
-    rgba(19, 211, 45, 0.7);
+    rgba(19, 211, 45, 0.7); */
   box-shadow: 0 0 1em #50c550;
 }
 
@@ -219,10 +229,11 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 .game {
+  text-shadow: 0 0 8px #C8C8C8;
   height: 555px;
   width: 1280px;
   color:#fff;
-  background: black;
+  background: rgb(10, 10, 10);
   padding: 10px 20px 0;
   position: relative;
 }
