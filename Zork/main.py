@@ -1,7 +1,3 @@
-
-# from js import document
-# from pyodide import create_proxy
-
 import zork_objects as obj
 from js import document
 # supress FutureWarning of deprecated feature from pyodide
