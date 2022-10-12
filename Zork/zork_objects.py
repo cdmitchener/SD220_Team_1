@@ -17,6 +17,7 @@ class Player:
 class Enemy:
     def __init__(self):
         self.name = 'Radiated Skunk'
+        self.rank = '[ Rank C ]'
         self.damage = 40
 
     def attack(self):
@@ -30,6 +31,7 @@ class ModerateEnemy(Enemy):
     def __init__(self):
         super().__init__()
         self.name = 'Glowing Buffalo'
+        self.rank = '[ Rank B ]'
         self.damage = 90
 
     def attack(self):
@@ -45,6 +47,7 @@ class DifficultEnemy(Enemy):
     def __init__(self):
         super().__init__()
         self.name = 'A Hoard of Mutated Carniverous Ducks'
+        self.rank = '[ Rank A ]'
         self.damage = 110
 
     def attack(self):

@@ -8,35 +8,44 @@ from pyodide import create_proxy
 progress = 0
 
 def travel_1(loc, pname):
+    en = obj.Enemy()
+    men = obj.ModerateEnemy()
+    den = obj.DifficultEnemy()
+
     if loc == 'nw':
         building = 'a1'
-        en = obj.Enemy()
+        Element("direction").write("You travel northwest...")
         Element("important").write("ENEMY SPOTTED!")
-        Element("message").write(f"{en.name}")
-        Element("prompt").write("Will you attack or flee?")
+        Element("enemy").write(f"&emsp;<b><i>{en.name}</i></b>")
+        Element("rank").write(f"&emsp;&emsp;{en.rank}")
+        Element("message").write("")
+        Element("prompt").write("&gt;&nbsp;&gt;&nbsp; Will you attack or flee?")
         # answer = obj.validate_attack_input()
         # attack_or_flee(answer, pname, en, loc)
         # arrive_to_building(pname, building)
     elif loc == 'n':
         building = 'a2'
-        en = obj.Enemy()
+        Element("direction").write("You travel north...")
         Element("important").write("ENEMY SPOTTED!")
-        Element("message").write(f"{en.name}")
-        Element("prompt").write("Will you attack or flee?")
+        Element("enemy").write(f"&emsp;<b><i>{en.name}</i></b>")
+        Element("rank").write(f"&emsp;&emsp;{en.rank}")
+        Element("message").write("")
+        Element("prompt").write("&gt;&nbsp;&gt;&nbsp; Will you attack or flee?")
         # answer = validate_attack_input()
         # attack_or_flee(answer, pname, en, loc)
         # arrive_to_building(pname, building)
     elif loc == 'ne':
         building = 'a3'
-        en = obj.Enemy()
-        Element("important").write("ENEMY SPOTTED!")
-        Element("message").write(f"{en.name}")
-        Element("prompt").write("Will you attack or flee?")
+        Element("direction").write("You travel northeast...")
+        Element("enemy").write(f"&emsp;<b><i>{en.name}</i></b>")
+        Element("rank").write(f"&emsp;&emsp;{en.rank}")
+        Element("message").write("")
+        Element("prompt").write("&gt;&nbsp;&gt;&nbsp; Will you attack or flee?")
         # answer = validate_attack_input()
         # attack_or_flee(answer, pname, en, loc)
         # arrive_to_building(pname, building)
     else:
-        Element("notify").write("Command is invalid. Try again.")
+        Element("notify").write("&gt;&nbsp; Command is invalid. Try again. &nbsp;&lt;")
 
 def arrive_to_building(pname, building):
     if building == 'a1':

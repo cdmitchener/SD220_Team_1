@@ -52,6 +52,10 @@ button {
   bottom: 0;
 }
 
+.rank-container {
+  display: inline-block;
+}
+
 #prompt-input {
   z-index: 1;
   font-family: 'Ubuntu Mono', sans-serif;
