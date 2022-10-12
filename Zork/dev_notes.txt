@@ -1,8 +1,26 @@
+
 Developers notes:
 
 main.py is the main function to run the game.
 
 zork_functions.py stores all the individual functions for the game.
 
-
 zork_objects.py stores all the objects for the game.
+
+Chelsea notes: The way we can save the game is that every time the 
+player clicks the "Save" button on the GUI, it will save what items
+ they have, the room number they're in, and how far they've progressed
+items will need to be programmed as a dictionary, room number assigned to 
+the variable room_num for each tile of the map, and each decision they make will
+ need to be assigned a value to the progress variable
+
+[Chelsea reply: Hi Joe, the game progress is already recorded in the progress variable, so a different variable
+                will need to be used to save the player's decisions.
+
+                Save functionality won't be viable until your code is functional utilizing the logic in main.py
+                that I fleshed out to connect your original coding to the frontend.
+                
+                I am working on trying to translate the code that's been added since the inital commit and push
+                to try and help you, but it's inefficient to have to keep translating with each push. It would
+                be much easier and more productive to make any additional coding work with the main.py file.
+                Please work on that and then we can get to working on the save function. Thanks!]

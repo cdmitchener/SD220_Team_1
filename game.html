@@ -9,7 +9,6 @@
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <py-env>
     - paths:
-        - /Zork/zork_functions.py
         - /Zork/zork_objects.py
         - /Zork/main.py
   </py-env>
@@ -24,7 +23,11 @@
     <div class="game">
       <h2 id="important">&gt;&nbsp; loading...</h2>
       <p id="message"></p>
+      <p id="horizontal-div" style="text-align:center;"></p>
       <p id="prompt"></p>
+      <h3 id="test"></h3>
+      <h2 id="progress"></h2>
+      <p id="notify" style="text-align:center;"></p>
           <div class="overlay">
         <py-script src = "/Zork/main.py">
         </py-script>

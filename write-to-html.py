@@ -9,10 +9,10 @@ message = """<html lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="crt_effect.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <py-env>
     - paths:
-        - /Zork/zork_functions.py
         - /Zork/zork_objects.py
         - /Zork/main.py
   </py-env>
@@ -27,16 +27,21 @@ message = """<html lang="en">
     <div class="game">
       <h2 id="important">&gt;&nbsp; loading...</h2>
       <p id="message"></p>
+      <p id="horizontal-div" style="text-align:center;"></p>
       <p id="prompt"></p>
-      <p id="progress"></p>
+      <h3 id="test"></h3>
+      <h2 id="progress"></h2>
+      <p id="notify" style="text-align:center;"></p>
+          <div class="overlay">
         <py-script src = "/Zork/main.py">
         </py-script>
+                </div>
         <div class="container">
           <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
           <form name=input action=/Zork/main.py method="post" autocomplete="off" target="dummyframe">
               <input type="text" id="prompt-input" name="prompt-input">
               <div class="confirm-contain">
-              <input type="button" id="confirm-btn" class="confirm" value="Confirm">
+              <input type="button" id="confirm-btn" class="confirm" value="Confirm"><span id="post"></span>
               </div>
           </form>
         </div>
