@@ -11,26 +11,32 @@ def travel_1(loc, pname):
     if loc == 'nw':
         building = 'a1'
         en = obj.Enemy()
-        print("ENEMY SPOTTED! A", en.name, "has been spotted.")
-        answer = obj.validate_attack_input()
-        attack_or_flee(answer, pname, en, loc)
-        arrive_to_building(pname, building)
+        Element("important").write("ENEMY SPOTTED!")
+        Element("message").write(f"{en.name}")
+        Element("prompt").write("Will you attack or flee?")
+        # answer = obj.validate_attack_input()
+        # attack_or_flee(answer, pname, en, loc)
+        # arrive_to_building(pname, building)
     elif loc == 'n':
         building = 'a2'
         en = obj.Enemy()
-        Element("message").write(f"ENEMY SPOTTED! A {en.name} has been spotted.")
-        answer = validate_attack_input()
-        attack_or_flee(answer, pname, en, loc)
-        arrive_to_building(pname, building)
+        Element("important").write("ENEMY SPOTTED!")
+        Element("message").write(f"{en.name}")
+        Element("prompt").write("Will you attack or flee?")
+        # answer = validate_attack_input()
+        # attack_or_flee(answer, pname, en, loc)
+        # arrive_to_building(pname, building)
     elif loc == 'ne':
         building = 'a3'
         en = obj.Enemy()
-        print("ENEMY SPOTTED! A", en.name, "has been spotted.")
-        answer = validate_attack_input()
-        attack_or_flee(answer, pname, en, loc)
-        arrive_to_building(pname, building)
+        Element("important").write("ENEMY SPOTTED!")
+        Element("message").write(f"{en.name}")
+        Element("prompt").write("Will you attack or flee?")
+        # answer = validate_attack_input()
+        # attack_or_flee(answer, pname, en, loc)
+        # arrive_to_building(pname, building)
     else:
-        print("Command is invalid. Try again.")
+        Element("notify").write("Command is invalid. Try again.")
 
 def arrive_to_building(pname, building):
     if building == 'a1':
