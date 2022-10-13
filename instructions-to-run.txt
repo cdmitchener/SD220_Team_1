@@ -1,9 +1,25 @@
-As of 10/6/22
+As of 10/13/22
+
+NOTE:
+
+Since this is still in early development, error checking and invalid input have not beeen implemented yet. Please be sure to enter something
+into the input field when prompted. If you run into problems past the point in the game where it asks which direction you'd like to go, the most
+likely culprit is a typo. Just refresh your page and try again.
+
+Anything past the prompt asking which direction you'd like to go will not operate properly at this point in time.
+
+------------------------------------------------------------------------------------------------------------------
 
 1. First, make sure that the indentation in game.html matches the indentation in write-to-html.py.
    The code that's between py-script tags won't work if the indentation is off.
 
 2. Please do not use Live Server because the game will not function the way it should.
+
+    UPDATE: After figuring out how to get create_proxy() to work, there is no need to do this.
+            Using Live Server works!
+
+            If you decide to use Live Server, ignore the rest of the steps; however, when
+            Live Server starts up, be sure to add /game.html at the end of the url.
 
 3. In the terminal type the following:
 
