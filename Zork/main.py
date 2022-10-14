@@ -90,6 +90,8 @@ def enemy_damage(pname, en):
     player.health = int(player.health) - int(en.damage)
     print(player.name, ', your health is at', player.health, 'points.')
 
+# e argument is a stand-in until can figure out how to convert pyodide.JsProxy to an integer...
+# https://stackoverflow.com/questions/72266425/how-to-use-pyscript-python-function-in-javascript
 def game_progress(e):
     global progress
     global text
@@ -97,7 +99,7 @@ def game_progress(e):
     inp = Element('prompt-input').element
     text = inp.value
     progress += 1
-    Element("test").write(f"{progress}")
+    # Element("test").write(f"{progress}")
     inp.value = ""
 
     Element("horizontal-div").write("_ __ ___ ____ _____ ______________________________________________ _____ ____ ___ __ _")
@@ -120,24 +122,29 @@ def game_progress(e):
         name = obj.Player(text)
         return name
 
-    # elif progress == 3 and text == "n":
-    #     progress += 1
-    #     Element("message").write("You just woke up in your radiation proof bio-pod headquarters.<br><br>You had traveled from a small community from the south and there is nothing back there for you unless you retrieve the special Chelsea-Wax plant.")
-    #     Element("prompt").write("&gt;&nbsp;&gt;&nbsp; You have the option to travel Northwest (nw), North (n), or Northeast (ne).")
-    #     Element("test").write(f"{progress}")
-
-    # elif progress == 3:
-    #     if text != "" and text != "n":
-    #         Element("important").write("INSTRUCTIONS:<br>")
-    #         Element("message").write("' i ' . . .  Check inventory<br>' h ' . . .  Health<br>' c ' . . .  Armor<br>' nw ' . . .  Go Northwest<br>' n ' . . .  Go North<br>' ne ' . . .  Go Northeast<br><br><b>When encountering enemies:</b><br>' a ' . . .  Attack<br>' f ' . . .  Flee")
-
-    #         Element("prompt").write("<h3 align='center'>&gt;&nbsp; Press 'Enter' to proceed &nbsp;&lt;</h3>")
+    elif progress == 3 and text == "n":
+        progress += 1
+        Element("message").write("You just woke up in your radiation proof bio-pod headquarters.<br><br>You had traveled from a small community from the south and there is nothing back there for you unless you retrieve the special Chelsea-Wax plant.")
+        Element("prompt").write("&gt;&nbsp;&gt;&nbsp; You have the option to travel Northwest (nw), North (n), or Northeast (ne).")
+        Element("test").write(f"{progress}")
 
     elif progress == 3:
+        if text != "n":
+            Element("important").write("INSTRUCTIONS:<br>")
+            Element("message").write("' i ' . . .  Check inventory<br>' h ' . . .  Health<br>' c ' . . .  Armor<br>' nw ' . . .  Go Northwest<br>' n ' . . .  Go North<br>' ne ' . . .  Go Northeast<br><br><b>When encountering enemies:</b><br>' a ' . . .  Attack<br>' f ' . . .  Flee")
+
+            Element("horizontal-div").write("")
+
+            Element("prompt").write("<h3 align='center'>&gt;&nbsp; Press 'Enter' proceed &nbsp;&lt;</h3>")
+
+    elif progress == 4:
+        Element("important").write("")
         Element("message").write("You just woke up in your radiation proof bio-pod headquarters.<br><br>You had traveled from a small community from the south and there is nothing back there for you unless you retrieve the special Chelsea-Wax plant.")
         Element("prompt").write("&gt;&nbsp;&gt;&nbsp; You have the option to travel Northwest (nw), North (n), or Northeast (ne).")
 
-    elif progress == 4:
+    # skips 5 because using a global variable... not good practice and creates spaghetti code. will need to figure out better way of increasing progress. good enough for now though.
+
+    elif progress == 6:
         travel_1(text, obj.Player)
 
     else:
